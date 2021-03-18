@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">EasyGo</string>
+    <string name="Sign">Sign</string>
+    <string name="SignUp">SignUp</string>
+    <string name="password">password</string>
+    <string name="Email">Email</string>
+    <string name="navigation_draw_open">open navigation drawer</string>
+    <string name="navigation_draw_close">close navigation drawer</string>
+    <string name="copy_right" translatable="false">Copyrights © %1$d</string>
+
+</resources>

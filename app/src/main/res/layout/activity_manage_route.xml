@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Ticket_Booking_Master.ManageRoute">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#3049A4">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/goBack"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_arrow_back"
+                android:background="@android:color/transparent"
+                android:layout_centerVertical="true"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Route Detail"
+                android:textColor="@color/white"
+                android:layout_toRightOf="@+id/goBack"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:textSize="18sp"/>
+
+        </RelativeLayout>
+    </androidx.appcompat.widget.Toolbar>
+    <EditText
+        android:id="@+id/selectVehicle"
+        android:layout_below="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="13dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:background="@drawable/button_background"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+       android:backgroundTint="@color/blue"
+        android:hint="Select Vehicle"/>
+         <EditText
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_below="@id/selectVehicle"
+             android:layout_marginTop="20dp"
+             android:layout_marginLeft="20dp"
+             android:layout_marginRight="20dp"
+             android:padding="15sp"
+             android:gravity="center"
+             android:backgroundTint="@color/blue"
+             android:id="@+id/addDepartureRoute"
+             android:hint="Add Departure Stations"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/addDepartureRoute"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:padding="15sp"
+        android:gravity="center"
+        android:backgroundTint="@color/blue"
+        android:id="@+id/addArrivalRoute"
+        android:hint="Add Arrival Stations"/>
+    <EditText
+        android:id="@+id/totalSeats"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15sp"
+        android:gravity="center"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:inputType="numberDecimal"
+        android:layout_below="@+id/addArrivalRoute"
+        android:backgroundTint="@color/blue"
+        android:layout_marginTop="10dp"
+        android:hint="Total Seats"/>
+    <EditText
+        android:id="@+id/routePrice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15sp"
+        android:gravity="center"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:inputType="numberDecimal"
+        android:layout_below="@+id/totalSeats"
+        android:backgroundTint="@color/blue"
+        android:layout_marginTop="10dp"
+        android:hint="Fare"/>
+  <!--  <LinearLayout
+        android:id="@+id/spinner"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_below="@+id/routePrice"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/type"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.4"
+            android:hint="Select Vehicle Type"
+            android:backgroundTint="@color/blue"
+            android:background="@color/blue"
+            android:textColorHint="@color/white"
+            android:gravity="center"
+            android:layout_gravity="center"
+            tools:ignore="Suspicious0dp" />
+        <Spinner
+            android:id="@+id/MySpinner"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="20dp"
+            android:gravity="center"
+            android:backgroundTint="@color/blue"
+            android:background="@color/blue"
+            android:layout_weight="2"
+            tools:ignore="Suspicious0dp" />
+
+    </LinearLayout>
+    <View
+        android:id="@+id/view3"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/spinner"
+        android:background="@color/blue"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"/>
+         <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/view2"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_centerHorizontal="true">
+        <RadioButton android:id="@+id/radio_class1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="30dp"
+            android:text="Economy class" />
+        <RadioButton android:id="@+id/radio_class2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Business class" />
+    </RadioGroup>
+-->
+
+
+    <LinearLayout
+        android:id="@+id/Date"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_below="@+id/routePrice"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/pickDate"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="20dp"
+            android:gravity="center"
+            android:layout_weight="2"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:backgroundTint="@color/blue"
+            android:text="Pick Date"
+            android:textColor="@color/white"
+            tools:ignore="Suspicious0dp" />
+        <TextView
+            android:id="@+id/showDate"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:hint="The Date is "
+            android:gravity="center"
+            tools:ignore="Suspicious0dp" />
+
+
+    </LinearLayout>
+    <View
+        android:id="@+id/view1"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/Date"
+        android:background="@color/blue"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"/>
+    <LinearLayout
+        android:id="@+id/Time"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_below="@+id/Date"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/pickTime"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="20dp"
+            android:gravity="center"
+            android:layout_weight="2"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:backgroundTint="@color/blue"
+            android:text="Pick Time"
+            android:textColor="@color/white"
+            tools:ignore="Suspicious0dp" />
+        <TextView
+            android:id="@+id/showTime"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:hint="The Time is "
+            android:gravity="center"
+            tools:ignore="Suspicious0dp" />
+    </LinearLayout>
+    <View
+        android:id="@+id/view2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/Time"
+        android:background="@color/blue"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_below="@+id/view2"
+        android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/VehicleClass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15sp"
+        android:layout_weight="2"
+        android:gravity="center"
+       android:layout_marginRight="10dp"
+        android:backgroundTint="@color/blue"
+        android:textColor="@color/white"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:background="@drawable/button_background"
+        android:textColorHint="@color/white"
+        android:hint="Vehicle Type"/>
+
+    <Button
+        android:id="@+id/btnAddRoute"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/view2"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:background="@drawable/button_background"
+        android:layout_weight="2"
+        android:backgroundTint="@color/blue"
+        android:text="Add Details"
+        android:textColor="@color/white"
+        tools:ignore="Suspicious0dp,UnknownId" />
+    </LinearLayout>
+
+</RelativeLayout>
+</ScrollView>

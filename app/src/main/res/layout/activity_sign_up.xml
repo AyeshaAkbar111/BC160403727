@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        tools:context=".SignUp"
+        android:orientation="vertical">
+        <EditText
+            android:id="@+id/UserName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="50dp"
+            android:layout_weight="1"
+            android:hint="UserName"
+            android:backgroundTint="@color/blue"
+            android:gravity="center"
+            android:drawableLeft="@drawable/ic_person"
+            android:textSize="15dp"
+            android:inputType="textPersonName"
+            android:padding="12dp" />
+        <EditText
+            android:id="@+id/Email"
+            android:layout_marginTop="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/Email"
+            android:backgroundTint="@color/blue"
+            android:inputType="textEmailAddress"
+            android:padding="12dp"
+            android:textSize="15dp"
+            android:drawableLeft="@drawable/ic_email"
+            android:gravity="center"
+            android:drawableStart="@drawable/ic_email" />
+        <RelativeLayout
+            android:id="@+id/Password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Email">
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="15"
+                android:inputType="textPassword"
+                android:backgroundTint="@color/blue"
+                android:padding="12dp"
+                android:textSize="15sp"
+                app:hintTextColor="@color/grey"
+                android:hint="@string/password"
+                android:drawableLeft="@drawable/ic_lock"
+                android:drawableStart="@drawable/ic_lock"
+                android:gravity="center"
+                android:autofillHints="@string/password"
+                android:id="@+id/password"/>
+            <ImageView
+                android:id="@+id/show_pass_btn"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="2dp"
+                android:background="@android:color/transparent"
+                android:padding="5dp"
+                android:onClick="ShowHidePass"
+                android:src="@drawable/ic_eye" />
+
+
+        </RelativeLayout>
+        <com.santalu.maskara.widget.MaskEditText
+            android:id="@+id/PhoneNo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Phone-No"
+            android:padding="12dp"
+            android:backgroundTint="@color/blue"
+            android:textSize="15dp"
+            android:drawableLeft="@drawable/ic_phone"
+            android:inputType="number"
+            android:gravity="center_horizontal"
+            app:mask="+92(___) ___ __ __"
+            app:maskCharacter="_"
+            app:maskStyle="completable"/>
+        <Button
+            android:id="@+id/SignUp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/gender"
+            android:layout_centerHorizontal="true"
+            android:backgroundTint="@color/blue"
+            android:layout_marginTop="20dp"
+            android:textStyle="bold"
+            android:padding="15dp"
+            android:text="Sign Up" />
+        <TextView
+            android:id="@+id/LogIn"
+            android:layout_width="match_parent"
+            android:layout_marginTop="20dp"
+            android:textStyle="bold"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btnReg"
+            android:text="Already've an account? Log In"
+            android:gravity="center"
+            android:textSize="18dp"
+            android:textColor="#3049A4"/>
+
+
+
+    </LinearLayout>
+</ScrollView>
