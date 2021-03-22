@@ -47,12 +47,13 @@
         style="@style/Base.CardView"
         android:background="@color/white"
         android:layout_marginRight="25dp">
-        <TextView
+        <EditText
             android:id="@+id/from"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="From"
             android:padding="15dp"
+            android:background="@android:color/transparent"
             android:gravity="center"
             android:layout_marginTop="10dp"
             android:drawableStart="@drawable/ic_location"
@@ -64,11 +65,12 @@
             android:background="@color/blue"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"/>
-        <TextView
+        <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="To"
             android:padding="15dp"
+            android:background="@android:color/transparent"
             android:gravity="center"
             android:layout_marginTop="10dp"
             android:drawableStart="@drawable/ic_location"

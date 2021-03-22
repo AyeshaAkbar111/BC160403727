@@ -24,7 +24,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class SelectSeat extends AppCompatActivity {
+public class SelectBusSeat extends AppCompatActivity {
     GridView gridView;
     ImageView imageView;
     LinearLayout linearLayout;

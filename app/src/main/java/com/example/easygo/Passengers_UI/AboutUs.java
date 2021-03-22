@@ -2,6 +2,7 @@ package com.example.easygo.Passengers_UI;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
@@ -26,6 +27,7 @@ public class AboutUs extends AppCompatActivity {
         View aboutPage = new AboutPage(this)
                 .isRTL(false)
                 .enableDarkMode(false)
+                .setDescription(getString(R.string.about_us_description))
                 .setImage(R.drawable.logo)
                 .addItem(new Element().setTitle("Version 6.2"))
                 .addItem(adsElement)
@@ -54,5 +56,9 @@ public class AboutUs extends AppCompatActivity {
             }
         });
         return copyRightsElement;
+    }
+
+    public void goBack(View view) {
+        startActivity(new Intent(getApplicationContext(), UserHome.class));
     }
 }

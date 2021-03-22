@@ -53,8 +53,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.storage.StorageReference;
-import com.google.firebase.storage.StorageTask;
 import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderView;
 
@@ -62,25 +60,18 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-import de.hdodenhof.circleimageview.CircleImageView;
-
 public class UserHome extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+    TextView gmailLink;
     List<vehiclesModel> vehiclesModelList;
     RecyclerView recyclerVehicleView;
-    DatabaseReference vehiclesRef,databaseReference;
+    DatabaseReference vehiclesRef;
     ActionBarDrawerToggle actionBarDrawerToggle;
     NavigationView navigationView;
     DrawerLayout drawerLayout;
     Toolbar toolbar;
     userHomeAdapter userHomeAdapter;
     FirebaseAuth mAuth;
-    Uri imageUri;
-    String myUri="";
-    StorageTask uploadTask;
-    StorageReference storageProfilePicReference;
     SliderView sliderView;
-    TextView gmailLink;
-    CircleImageView profile_image;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,10 +82,6 @@ public class UserHome extends AppCompatActivity implements NavigationView.OnNavi
         AdView mAdView  = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
-        //gmaillink
-        gmailLink=findViewById(R.id.gmailLink);
-        gmailLink.setPaintFlags(gmailLink.getPaintFlags()| Paint.UNDERLINE_TEXT_FLAG);
-        //slide
         sliderView=findViewById(R.id.imageSlider);
         List<Integer> images=new ArrayList<>();
         images.add(R.drawable.slide1);
@@ -129,22 +116,13 @@ public class UserHome extends AppCompatActivity implements NavigationView.OnNavi
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         actionBarDrawerToggle.syncState();
         getVehiclesList();
-        //link
-        gmailLink.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Uri uri = Uri.parse("https://accounts.google.com"); // missing 'http://' will cause crashed
-                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-                startActivity(intent);
-            }
-        });
     }
 
     @Override
     public void onBackPressed() {
         if (drawerLayout.isDrawerOpen(GravityCompat.START))
         {
-           drawerLayout.closeDrawer(GravityCompat.START);
+            drawerLayout.closeDrawer(GravityCompat.START);
         }else {
             super.onBackPressed();
         }
@@ -176,53 +154,53 @@ public class UserHome extends AppCompatActivity implements NavigationView.OnNavi
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
-      switch (item.getItemId()){
-          case R.id.home:
-              startActivity(new Intent(getApplicationContext(),UserHome.class));
-              break;
+        switch (item.getItemId()){
+            case R.id.home:
+                startActivity(new Intent(getApplicationContext(),UserHome.class));
+                break;
 
-          case R.id.about:
-              startActivity(new Intent(getApplicationContext(),AboutUs.class));
-              break;
-          case R.id.share:
-              ApplicationInfo api=getApplicationContext().getApplicationInfo();
-              String apkpath=api.sourceDir;
-              Intent shareIntent=new Intent();
-              shareIntent.setAction(Intent.ACTION_SEND);
-              shareIntent.setType("application/vnd.android.package-archive ");
-              shareIntent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(new File(apkpath)));
-              startActivity(Intent.createChooser(shareIntent,"share via"));
-              break;
-          case R.id.logout:
+            case R.id.about:
+                startActivity(new Intent(getApplicationContext(),AboutUs.class));
+                break;
+            case R.id.share:
+                ApplicationInfo api=getApplicationContext().getApplicationInfo();
+                String apkpath=api.sourceDir;
+                Intent shareIntent=new Intent();
+                shareIntent.setAction(Intent.ACTION_SEND);
+                shareIntent.setType("application/vnd.android.package-archive ");
+                shareIntent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(new File(apkpath)));
+                startActivity(Intent.createChooser(shareIntent,"share via"));
+                break;
+            case R.id.logout:
 
-              AlertDialog alertDialog = new AlertDialog.Builder(this)
-                      .setIcon(R.drawable.ic_warning)
-                      .setTitle("Logout")
-                      .setMessage("Are you sure you want to logout?")
-                      .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                          @Override
-                          public void onClick(DialogInterface dialogInterface, int i) {
+                AlertDialog alertDialog = new AlertDialog.Builder(this)
+                        .setIcon(R.drawable.ic_warning)
+                        .setTitle("Logout")
+                        .setMessage("Are you sure you want to logout?")
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
 
-                              mAuth.signOut();
-                              Intent intent = new Intent(UserHome.this, Login.class);
-                              startActivity(intent);
-                              System.exit(0);
-                              finish();
-                          }
-                      })
-                      .setNegativeButton("No", new DialogInterface.OnClickListener() {
-                          @Override
-                          public void onClick(DialogInterface dialogInterface, int i) {
-                              finish();
-                          }
-                      })
-                      .show();
+                                mAuth.signOut();
+                                Intent intent = new Intent(UserHome.this, Login.class);
+                                startActivity(intent);
+                                System.exit(0);
+                                finish();
+                            }
+                        })
+                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                finish();
+                            }
+                        })
+                        .show();
 
-              break;
-      }
+                break;
+        }
 
 
-     drawerLayout.closeDrawer(GravityCompat.START);
+        drawerLayout.closeDrawer(GravityCompat.START);
         return true;
 
 

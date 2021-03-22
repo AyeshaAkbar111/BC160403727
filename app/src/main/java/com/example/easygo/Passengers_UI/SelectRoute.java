@@ -13,7 +13,6 @@ import android.view.View;
 import android.widget.DatePicker;
 import android.widget.TextView;
 
-import com.example.easygo.Login;
 import com.example.easygo.R;
 
 public class SelectRoute extends AppCompatActivity {
@@ -103,6 +102,6 @@ public class SelectRoute extends AppCompatActivity {
     }
 
     public void BookMe(View view) {
-        startActivity(new Intent(getApplicationContext(), SelectSeat.class));
+        startActivity(new Intent(getApplicationContext(), SelectBusSeat.class));
     }
 }

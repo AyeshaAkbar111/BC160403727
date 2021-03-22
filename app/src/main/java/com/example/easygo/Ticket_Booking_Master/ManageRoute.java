@@ -37,6 +37,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.libraries.places.api.Places;
 import com.google.android.libraries.places.api.model.Place;
+import com.google.android.libraries.places.api.net.PlacesClient;
 import com.google.android.libraries.places.widget.Autocomplete;
 import com.google.android.libraries.places.widget.AutocompleteActivity;
 import com.google.android.libraries.places.widget.model.AutocompleteActivityMode;
@@ -100,6 +101,7 @@ public class ManageRoute extends AppCompatActivity implements View.OnClickListen
         routePrice.setOnClickListener(this);
         manageRouteRef=FirebaseDatabase.getInstance().getReference("Route Details");
         Places.initialize(getApplicationContext(),"AIzaSyCQKtaYzAH69C_aV2P6chZXcM3h0twBzeU");
+        PlacesClient placesClient=Places.createClient(this);
         addDepartureRoute.setFocusable(false);
         addDepartureRoute.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -164,13 +166,10 @@ public class ManageRoute extends AppCompatActivity implements View.OnClickListen
                     @Override
                     public void onItemClicked(RecyclerView recyclerView, int i, View view) {
                       VehicleClass.setText(strings.get(i));
-                    //    VehicleClass.setTextColor("FFFFFF");
                       alertDialog1.dismiss();
                     }
                 });
                 alertDialog1.show();
-               // alertDialog1.getWindow().setBackgroundDrawable(new ColorDrawable(Color.YELLOW));
-              //  alertDialog1.getWindow().setBackgroundDrawableResource(R.drawable.button_background);
                 Toast.makeText(this, "Done", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.pickDate:
@@ -209,6 +208,7 @@ public class ManageRoute extends AppCompatActivity implements View.OnClickListen
                     return;
                 }
           RouteModel routeModel=new RouteModel(SelectVehicle,AddDepartureRoute,AddArrivalRoute,vehicleClasse,date,time,Double.parseDouble(TicketPrice),Integer.parseInt(TotalSeats));
+              routeModel.setTimestamp(System.currentTimeMillis());
                 manageRouteRef.push().setValue(routeModel).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {

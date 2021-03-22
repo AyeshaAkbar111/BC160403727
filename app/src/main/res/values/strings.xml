@@ -3,9 +3,11 @@
     <string name="Sign">Sign</string>
     <string name="SignUp">SignUp</string>
     <string name="password">password</string>
+    <string name="gmail"><u>easygo4455@gmail.com</u></string>
     <string name="Email">Email</string>
     <string name="navigation_draw_open">open navigation drawer</string>
     <string name="navigation_draw_close">close navigation drawer</string>
     <string name="copy_right" translatable="false">Copyrights © %1$d</string>
+    <string name="about_us_description">This app aims to reserve tickets online, making ticket reservation much easy and time effective. User can log in and book their tickets on the go and their reservation will be confirmed via a verification message. Users can pay online via credit cards or online transactions.</string>
 
 </resources>

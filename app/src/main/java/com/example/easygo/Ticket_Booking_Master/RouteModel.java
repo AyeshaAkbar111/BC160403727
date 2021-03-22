@@ -4,6 +4,7 @@ public class RouteModel {
     String key, SelectVehicle, AddDepartureRoute, AddArrivalRoute, vehicleClass, date, time;
     double TicketPrice;
     int TotalSeats;
+    long timestamp;
 
     public RouteModel(String selectVehicle, String addDepartureRoute, String addArrivalRoute, String vehicleClass, String date, String time, double ticketPrice, int totalSeats) {
         SelectVehicle = selectVehicle;
@@ -14,6 +15,14 @@ public class RouteModel {
         this.time = time;
         TicketPrice = ticketPrice;
         TotalSeats = totalSeats;
+    }
+
+    public long getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(long timestamp) {
+        this.timestamp = timestamp;
     }
 
     public String getKey() {

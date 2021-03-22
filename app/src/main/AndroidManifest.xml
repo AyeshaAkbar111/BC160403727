@@ -21,7 +21,7 @@
 
         <activity android:name=".Passengers_UI.AboutUs"/>
         <activity android:name=".Passengers_UI.SelectRoute" />
-        <activity android:name=".Passengers_UI.SelectSeat" />
+        <activity android:name=".Passengers_UI.SelectBusSeat" />
         <activity android:name=".Ticket_Booking_Master.ManageTickets" />
         <activity android:name=".Ticket_Booking_Master.ManageRoute" />
         <activity android:name=".Ticket_Booking_Master.ManageVehicles" />

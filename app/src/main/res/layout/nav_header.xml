@@ -27,7 +27,7 @@
             android:id="@+id/gmailLink"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="easygo4455@gmail.com"
+            android:text="@string/gmail"
             android:textSize="20sp"
             android:layout_marginLeft="10dp"
             android:textColor="@color/white"

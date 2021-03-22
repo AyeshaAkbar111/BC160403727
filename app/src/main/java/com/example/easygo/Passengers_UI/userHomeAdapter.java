@@ -40,6 +40,33 @@ public class userHomeAdapter extends RecyclerView.Adapter<userHomeAdapter.userVi
     public void onBindViewHolder(@NonNull userViewHolder holder, int position) {
      holder.textView.setText(vehiclesModelList.get(position).getVehicleName());
      Picasso.get().load(vehiclesModelList.get(position).getDownloadurl()).fit().placeholder(R.drawable.ic_default_image).into(holder.imageView);
+      holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (vehiclesModelList.get(position).getVehicleName().equals("Bus")){
+                    Intent intent=new Intent(context,SelectRoute.class);
+                    intent.putExtra("type","Bus");
+                    context.startActivity(intent);
+                }
+               else if (vehiclesModelList.get(position).getVehicleName().equals("Train")){
+                    Intent intent=new Intent(context,SelectRoute.class);
+                    intent.putExtra("type","Train");
+                    context.startActivity(intent);
+                }
+                else if (vehiclesModelList.get(position).getVehicleName().equals("Flight")){
+                    Intent intent=new Intent(context,SelectRoute.class);
+                    intent.putExtra("type","Flight");
+                    context.startActivity(intent);
+                }
+
+
+            }
+        });
+
+
+
+
+
     }
 
     @Override
@@ -54,14 +81,7 @@ public class userHomeAdapter extends RecyclerView.Adapter<userHomeAdapter.userVi
             super(itemView);
             imageView=itemView.findViewById(R.id.image);
             textView=itemView.findViewById(R.id.text);
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    int position=getAdapterPosition();
-                    Intent intent=new Intent(context,SelectRoute.class);
-                    context.startActivity(intent);
-                }
-            });
+
         }
     }
 
